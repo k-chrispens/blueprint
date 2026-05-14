@@ -12,7 +12,7 @@ Agent-agnostic skills compatible with [skills.sh](https://skills.sh). Works with
 
 ## Why Blueprint
 
-Most coding agents rush to code or guess at the plan. Blueprint slows down just enough to ask the right questions. It reads your codebase and asks multiple-choice questions you can answer easily. It catches things you didn't think to think about. The output is a markdown plan any coding agent can execute.
+Most coding agents rush to code or guess at the plan. Blueprint slows down just enough to ask the right questions. It reads your codebase and asks multiple-choice questions you can answer easily. It catches things you didn't think to think about. The output is a self-contained HTML plan you can open in any browser — easy for humans to review and ready for any coding agent to execute.
 
 > "Catches things that I didn't think to think about."
 >
@@ -40,7 +40,7 @@ Blueprint asks you to pick a template, explores your codebase, and starts asking
 /blueprint-generate
 ```
 
-The plan is written to `blueprint/<slug>/plan-<slug>.md`. From there, chat to refine, ask *"what are the open questions?"* to surface gaps, or hand the file to your coding agent.
+The plan is written to `blueprint/<slug>/plan-<slug>.html`. Open it in any browser to read, chat to refine, ask *"what are the open questions?"* to surface gaps, or hand the file to your coding agent.
 
 ## Skills
 
@@ -53,7 +53,7 @@ The plan is written to `blueprint/<slug>/plan-<slug>.md`. From there, chat to re
 
 1. Run `blueprint <description>`. Pick a template. The agent explores your codebase and asks the first round of questions.
 2. Answer questions. Follow-ups come naturally based on your answers.
-3. Run `blueprint-generate`. The plan lands at `blueprint/<slug>/plan-<slug>.md`.
+3. Run `blueprint-generate`. The plan lands at `blueprint/<slug>/plan-<slug>.html`.
 4. Refine in chat. Ask *"what are the open questions?"* to surface what is still ambiguous.
 5. Continue refining for as many rounds as you want.
 6. Hand the plan to your coding agent.
@@ -74,6 +74,8 @@ Edit `templates.json` in both `blueprint/references/` and `blueprint-generate/re
 - `name`. Short label shown during template selection.
 - `description`. One-line summary shown next to the name.
 - `prompt`. String or array of strings describing the plan structure the agent should follow.
+
+Templates only describe sections. The HTML structure rules (semantic tags, self-containment, header, open-questions callout, diagrams) live in `skills/blueprint-generate/references/html-structure.md` and apply to every template.
 
 Example:
 
@@ -98,6 +100,16 @@ Example:
 **Best fit.** Greenfield projects. Large new features on existing codebases. Incremental changes big enough to warrant a plan. Research experiments. New models, systems, or subsystems.
 
 **Less ideal.** Frontends where most decisions are visual. Small refactors. Debug-polish work.
+
+## Why HTML plans
+
+The plan is the contract between you and the coding agent. It needs to be easy for *you* to read closely, not just easy for the agent to consume.
+
+- **Easier human review.** A styled HTML page with clear typography, sections, and navigation is faster to skim and read closely than a raw markdown file. The plan stops being a wall of text.
+- **Diagrams that illustrate intent.** The agent can embed inline SVG or ASCII diagrams to show structure, flow, and relationships — making plans more legible to both you and the next agent that reads them.
+- **A distinguished open-questions callout.** Unresolved decisions render as a visually distinct block, so they cannot be missed during review.
+- **Tighter alignment.** When the human stays meaningfully in the loop on the plan, the coding agent stays meaningfully aligned with the human's actual intent.
+- **Self-contained.** Every plan is a single `.html` file with embedded styles and zero external dependencies — open it offline, commit it, share it.
 
 ## Requirements
 
