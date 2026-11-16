@@ -1,9 +1,10 @@
 # Plan refinement
 
 Inform the user:
-- The plan is ready — show the path to the `.html` file in a code block so it's easy to copy
-- They can open the file in any browser to read it, and chat to refine it freely
+- The plan is ready — show the path to the plan file in a code block so it's easy to copy
+- They can read it (an HTML plan opens in any browser) and chat to refine it freely
 - Ask "what are the open questions?" to get a list of any open questions to resolve
+- This is the phase for edge cases and implementation detail — offer to walk through the items parked during Q&A first
 - Do NOT modify any files other than the plan until the user explicitly confirms they are ready to move to implementation
 
 Then continue for as many rounds as the user wants. Each round, the user may:
@@ -11,9 +12,9 @@ Then continue for as many rounds as the user wants. Each round, the user may:
 - Ask for open questions to resolve
 
 When the user asks for changes:
-- Only modify the HTML plan file in place — do not create or modify any other files
-- Preserve the plan's overall HTML structure (header, sections, open-questions callout)
-- Preserve the strict self-containment of the file (no external URLs introduced during edits)
+- Only modify the plan file in place — do not create or modify any other files
+- Preserve the plan's overall structure (for HTML: header, sections, open-questions callout)
+- For HTML, preserve the strict self-containment of the file (no external URLs introduced during edits)
 - Make targeted edits that address user feedback
 - After significant edits, offer to regenerate the question list
 

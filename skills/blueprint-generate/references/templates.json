@@ -23,5 +23,18 @@
       "- Expected behavior: The resulting behavior from the user's or system's perspective, including any changes in behavior due to interaction of new and existing functionality",
       "- Changes: What needs to change relative to the existing system, without implementation details"
     ]
+  },
+  {
+    "name": "Exploration",
+    "description": "Question, Background, Approach, Evaluation, Open questions — for evaluating an approach or learning by building",
+    "prompt": [
+      "Write a plan for an exploration, with EXACTLY the following sections in order.",
+      "",
+      "- Question: What we want to find out or learn, and why it matters",
+      "- Background: What is already known, the reading that informed this plan (with links), and the user's take on it",
+      "- Approach: What to build or run, as ordered steps, without implementation details",
+      "- Evaluation: How the result will be judged, stated before the work starts; this may be a fuzzy criterion, the user inspecting the result, or a concrete benchmark or dataset",
+      "- Open questions: Unresolved decisions, parked edge cases, and what result would change the approach"
+    ]
   }
 ]

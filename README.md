@@ -40,7 +40,7 @@ Blueprint asks you to pick a template, explores your codebase, and starts asking
 /blueprint-generate
 ```
 
-The plan is written to `blueprint/<slug>/plan-<slug>.html`. Open it in any browser to read, chat to refine, ask *"what are the open questions?"* to surface gaps, or hand the file to your coding agent.
+You choose the plan format at the start: HTML (the default) or Markdown. An HTML plan is written to `blueprint/<slug>/plan-<slug>.html`, a Markdown one to `plan-<slug>.md`. Open it to read, chat to refine, ask *"what are the open questions?"* to surface gaps, or hand the file to your coding agent.
 
 ## Skills
 
@@ -51,19 +51,20 @@ The plan is written to `blueprint/<slug>/plan-<slug>.html`. Open it in any brows
 
 ## Workflow
 
-1. Run `blueprint <description>`. Pick a template. The agent explores your codebase and asks the first round of questions.
+1. Run `blueprint <description>`. Pick a template and a format (HTML or Markdown). The agent explores your codebase and asks the first round of questions.
 2. Answer questions. Follow-ups come naturally based on your answers.
-3. Run `blueprint-generate`. The plan lands at `blueprint/<slug>/plan-<slug>.html`.
+3. Run `blueprint-generate`. The plan lands at `blueprint/<slug>/plan-<slug>.html` (or `.md`).
 4. Refine in chat. Ask *"what are the open questions?"* to surface what is still ambiguous.
 5. Continue refining for as many rounds as you want.
 6. Hand the plan to your coding agent.
 
 ## Templates
 
-Two built-in templates ship by default.
+Three built-in templates ship by default.
 
 - **Default.** Overview, Expected behavior, Implementation plan, Implementation phases, Testing strategy, Open questions.
 - **Concise.** Overview, Expected behavior, Changes.
+- **Exploration.** Question, Background, Approach, Evaluation, Open questions. For evaluating an approach or learning by building.
 
 You can also describe a custom template inline when prompted.
 
@@ -75,7 +76,7 @@ Edit `templates.json` in both `blueprint/references/` and `blueprint-generate/re
 - `description`. One-line summary shown next to the name.
 - `prompt`. String or array of strings describing the plan structure the agent should follow.
 
-Templates only describe sections. The HTML structure rules (semantic tags, self-containment, header, open-questions callout, diagrams) live in `skills/blueprint-generate/references/html-structure.md` and apply to every template.
+Templates only describe sections. The HTML structure rules (semantic tags, self-containment, header, open-questions callout, diagrams) live in `skills/blueprint-generate/references/html-structure.md` and apply to every template when the plan is written as HTML.
 
 Example:
 

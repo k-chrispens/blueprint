@@ -5,5 +5,5 @@ Synthesize the Q&A conversation into a refined version of the original prompt. R
 - ONLY add new bullet points (using `*` syntax) to incorporate the clarifications
 - Insert new bullet points in logical locations near related content
 - Each bullet should synthesize a question and its answer into one concise statement
-- Add exactly one bullet per question-answer pair
+- Add exactly one bullet per question-answer pair; when the user revises an earlier answer, replace that bullet instead of adding another
 - Do not add explanations or commentary

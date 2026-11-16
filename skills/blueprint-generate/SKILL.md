@@ -7,9 +7,9 @@ description: End the Q&A phase and generate the plan. Use after the blueprint sk
 
 Generate an implementation plan from the Q&A session.
 
-### Step 1: Resolve template
+### Step 1: Resolve template and format
 
-Recall the template name from the blueprint Q&A conversation. Read [references/templates.json](references/templates.json) and find the matching template.
+Recall the template name and the plan format (HTML or Markdown) from the blueprint Q&A conversation. If no format was chosen, use HTML. Read [references/templates.json](references/templates.json) and find the matching template.
 
 ### Step 2: Generate slug
 
@@ -24,6 +24,8 @@ mkdir -p blueprint/<slug>
 ### Step 4: Refine the prompt
 
 Use the most recent refined prompt from the Q&A conversation. If for any reason it wasn't shown during Q&A, generate it now — see [references/refine-prompt.md](references/refine-prompt.md).
+
+If the Q&A left a **Parked for later** list, carry every item on it into the plan's open questions.
 
 ### Step 5: Write the plan
 
